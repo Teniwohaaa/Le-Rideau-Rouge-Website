@@ -1,41 +1,35 @@
 <?php
-// session_start();
-// require 'database/db_connect.php';
+session_start();
+require 'database/db_connect.php';
 
-// // Check if user is logged in and is admin
-// if (!isset($_SESSION['email'])) {
-//     header("Location: login.php");
-//     exit();
-// }
+# on va vérifier si l'utilisateur est connecté et s'il est admin
+if (!isset($_SESSION['email'])) { # isset verifie si la variable existe et n'est pas nulle
+    # si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion
+    header("Location: login.php");
+    exit();
+}
 
-// try {
-//     // Get user info using PDO
-//     $stmt = $conn->prepare("SELECT id, username, is_admin FROM users WHERE email = ?");
-//     $stmt->execute([$_SESSION['email']]);
-//     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+try {
+    $email = $_SESSION['email'];
+    $request = $conn->prepare("SELECT id, username, is_admin FROM users WHERE email = '$email'");
+    $request->execute();
+    $user = $request->fetch();
+    if (!$user || !$user['is_admin']) {
+        # si l'utilisateur n'est pas admin, on le redirige vers la page d'accueil
+        header("Location: index.php");
+        exit();
+    }
 
-//     if (!$user || !$user['is_admin']) {
-//         header("Location: index.php");
-//         exit();
-//     }
-
-//     // Get stats for dashboard
-//     $upcoming_events = $conn->query("SELECT COUNT(*) FROM events WHERE date_event > NOW()")->fetchColumn();
-//     $total_reservations = $conn->query("SELECT COUNT(*) FROM reservations")->fetchColumn();
-//     $new_messages = 0; // Placeholder for future message system
-
-//     // Get recent events
-//     $recent_events = $conn->query("SELECT e.*, COUNT(r.id) as reservation_count 
-//                                   FROM events e 
-//                                   LEFT JOIN reservations r ON e.id = r.event_id 
-//                                   WHERE e.date_event > NOW()
-//                                   GROUP BY e.id 
-//                                   ORDER BY e.date_event ASC 
-//                                   LIMIT 5")->fetchAll(PDO::FETCH_ASSOC);
-
-// } catch (PDOException $e) {
-//     die("Database error: " . $e->getMessage());
-// }
+    # laintenan on recup Les stats pour le dashboard
+    $reservation_num = $conn->query("SELECT COUNT(*) FROM reservations")->fetchColumn(); # ici on va fetch le nombre de réservations
+    $User_number = $conn->query("SELECT COUNT(*) FROM users")->fetchColumn();
+    $event_num = $conn->query("SELECT COUNT(*) FROM events")->fetchColumn();
+    
+    # recup les 5 prochains evenements
+    $upcoming_events = $conn->query("SELECT * FROM events ORDER BY date_event LIMIT 5")->fetchAll();
+} catch (PDOException $e) {
+    echo "database error: ". $e->getMessage();
+}
 ?>  
 <head>
     <title>Tableau de Bord - Le Rideau Rouge</title>
@@ -48,44 +42,53 @@
     <aside class="sidebar">
         <ul class="sidebar_menu">
             <li><a href="dashboard.php"><img class="sidebar-icon" src="" alt="home icon">Tableau de Bord</a></li>
-            <li><a href="manage-events.php"><img class="sidebar-icon src="" alt="calendar icon">Gérer événment</a></li>
-            <li><a href="manage_reservations.php"><img class="sidebar-icon src="" alt="ticket icon">Réservations</a></li>
+            <li><a href="manage-events.php"><img class="sidebar-icon" src="" alt="calendar icon">Gérer événment</a></li>
+            <li><a href="manage_reservations.php"><img class="sidebar-icon" src="" alt="ticket icon">Réservations</a></li>
         </ul>
     </aside>
 
     <main class="main-content">
         <div class="dashboard-header">
             <h1>Tableau de Bord</h1>
-            <p>Bienvenue, <?= htmlspecialchars($user['username']) ?></p>
-        <h1>Bienvenue,<? echo $user['username']?></h1>
-
-        <a href="manage_events.php" class="btn">+ Ajouter un Événement</a>
+            <p>Bienvenue, <?php echo $user['username'] ?></p>
         </div>
-        <div class="Stats-station">
+        
+        <div class="stats-section">
             <div class="stat-card">
                 <h3>Nombre De reservations</h3>
                 <div class="value"><?php echo $reservation_num ?></div>
-                <a href="manage_events.php">Liste Des utulisateurs</a>
+                <a href="manage_reservations.php">Voir les réservations</a>
             </div>
 
             <div class="stat-card">
                 <h3>Nombre utulisateurs</h3>
                 <div class="value"><?php echo $User_number ?></div>
-                <a href="manage_reservation.php">Liste Des utulisateurs</a>
+                <a href="#">Liste Des utulisateurs</a>
             </div>
 
-            <div class="Starts-card">
+            <div class="stat-card">
                 <h3>Nombre D'événements</h3>
                 <div class="value"><?php echo $event_num ?></div>
                 <a href="manage_events.php">Liste Des événements</a>
             </div>
         </div>
-        <div class="recent-events">
+        
+        <div class="upcoming-events">
             <h2>Prochains Événements</h2>
-            <div>
-
-            </div>
-
+            <?php if (count($upcoming_events) > 0): ?>
+                <div class="events-grid">
+                    <?php foreach($upcoming_events as $event): ?>
+                        <div class="event-card">
+                            <h3><?php echo htmlspecialchars($event['title']); ?></h3>
+                            <p>Date: <?php echo date('d M Y H:i', strtotime($event['date_event'])); ?></p>
+                            <p>Lieu: <?php echo htmlspecialchars($event['venue']); ?></p>
+                            <p>Prix: <?php echo $event['price']; ?> DZD</p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <p>Aucun événement à venir.</p>
+            <?php endif; ?>
         </div>
     </main>
 </div>

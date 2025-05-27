@@ -1,18 +1,21 @@
-<?php 
-require 'database/db_connect.php';
-session_start();
+<?php
+// Configuration et vérifications initiales
+require 'database/db_connect.php';  // Connexion à la base de données
+session_start();  // Démarrage de la session utilisateur
 
-//  on verifie si on a des infos de l'utulisateur
+// Vérification de la présence d'un ID de réservation
 if (!isset($_GET['reservation_id'])) {
     header("Location: index.php");
     exit();
 }
+
+// Gestion de la validation de la réservation
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['validate_reservation'])) {
     header("Location: index.php");
     exit();
 }
+
 try {
-    
     $reservation_id = $_GET['reservation_id'];
     $user_id = $_SESSION['user_id'] ?? 0;
     
@@ -117,7 +120,7 @@ try {
             margin-bottom: 2rem;
             overflow: hidden;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('images/<?= htmlspecialchars($reservation['image_path']) ?>');
+                        url('images/<?php echo $reservation['image_path']?>');
             background-size: cover;
             background-position: center;
         }

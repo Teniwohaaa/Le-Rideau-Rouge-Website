@@ -92,27 +92,130 @@
   font-size: 1.8rem;
 }
 
+/* Replace the events-grid and event-card styles with these new table styles */
 .events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.event-card {
+  width: 100%;
+  border-collapse: collapse;
   background-color: var(--gray-color);
-  padding: 1.5rem;
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.event-card h3 {
-  color: var(--light-color);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+.events-grid thead th {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.1rem;
 }
 
-.event-card p {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+.events-grid tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.events-grid tbody tr:last-child {
+  border-bottom: none;
+}
+
+.events-grid td {
+  padding: 1rem;
   color: rgba(255, 255, 255, 0.8);
+}
+/* Forms and Tables */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+table th {
+  background-color: var(--gray-color);
+  color: var(--accent-color);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Table Styles - Improved */
+.events-grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--gray-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.events-grid thead th {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.events-grid tbody tr {
+  transition: var(--transition);
+}
+
+.events-grid tbody tr:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+.events-grid tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.events-grid td {
+  padding: 1.25rem 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.events-grid td:first-child {
+  font-weight: 500;
+}
+
+.events-grid td:last-child {
+  color: var(--accent-color);
+  font-weight: 600;
 }

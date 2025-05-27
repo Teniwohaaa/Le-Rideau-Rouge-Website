@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'database/db_connect.php';
+require('database/db_connect.php');
 
 # on va vérifier si l'utilisateur est connecté et s'il est admin
 if (!isset($_SESSION['email'])) { # isset verifie si la variable existe et n'est pas nulle
@@ -41,9 +41,10 @@ try {
 <div class="dashboard">
     <aside class="sidebar">
         <ul class="sidebar_menu">
-            <li><a href="dashboard.php"><img class="sidebar-icon" src="" alt="home icon">Tableau de Bord</a></li>
-            <li><a href="manage-events.php"><img class="sidebar-icon" src="" alt="calendar icon">Gérer événment</a></li>
-            <li><a href="manage_reservations.php"><img class="sidebar-icon" src="" alt="ticket icon">Réservations</a></li>
+            <li><a href="dashboard.php"><img class="sidebar-icon" src="Dash-board.png" alt="home icon">Tableau de Bord</a></li>
+            <li><a href="manage_events.php"><img class="sidebar-icon" src="event-icon.png" alt="calendar icon">Gérer événment</a></li>
+            <li><a href="manage_reservations.php"><img class="sidebar-icon" src="ticket-icon.png" alt="ticket icon">Réservations</a></li>
+            <li><a href="manage_users.php"><img class="sidebar-icon" src="users-icon.png" alt="user-icon">Gérer les utulisateurs</a></li>
         </ul>
     </aside>
 
@@ -76,16 +77,26 @@ try {
         <div class="upcoming-events">
             <h2>Prochains Événements</h2>
             <?php if (count($upcoming_events) > 0): ?>
-                <div class="events-grid">
-                    <?php foreach($upcoming_events as $event): ?>
-                        <div class="event-card">
-                            <h3><?php echo htmlspecialchars($event['title']); ?></h3>
-                            <p>Date: <?php echo date('d M Y H:i', strtotime($event['date_event'])); ?></p>
-                            <p>Lieu: <?php echo htmlspecialchars($event['venue']); ?></p>
-                            <p>Prix: <?php echo $event['price']; ?> DZD</p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                <table class="events-grid">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Lieu</th>
+            <th>Prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($upcoming_events as $event): ?>
+            <tr>
+                <td data-label="Titre"><?php echo $event['title']; ?></td>
+                <td data-label="Date"><?php echo date('d M Y H:i', strtotime($event['date_event'])); ?></td>
+                <td data-label="Lieu"><?php echo $event['venue']; ?></td>
+                <td data-label="Prix"><?php echo $event['price']; ?> DZD</td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
             <?php else: ?>
                 <p>Aucun événement à venir.</p>
             <?php endif; ?>

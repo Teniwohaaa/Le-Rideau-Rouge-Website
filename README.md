@@ -25,7 +25,6 @@ git clone https://github.com/votre-utilisateur/nom-du-repo.git
 3. Démarrer Apache et MySQL, puis accéder au site via :
 ```
 http://localhost/nom-du-projet/
-
 ```
 4. Importer la base de données si nécessaire via phpMyAdmin
 

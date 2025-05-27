@@ -18,15 +18,15 @@ Un site web qui permet aux utilisateurs de consulter les événements culturels 
 
 1. Cloner le projet :
 ```bash
-git clone https://github.com/votre-utilisateur/nom-du-repo.git
+https://github.com/Teniwohaaa/Le-Rideau-Rouge-Website.git
 ```
 2. Placer les fichiers dans le dossier htdocs de XAMPP (ou équivalent)
 
 3. Démarrer Apache et MySQL, puis accéder au site via :
 ```
-http://localhost/nom-du-projet/
+http://localhost/Rideau_Rouge/
 ```
-4. Importer la base de données si nécessaire via phpMyAdmin
+4. Importer la base de données via phpMyAdmin
 
 ## Auteur
 

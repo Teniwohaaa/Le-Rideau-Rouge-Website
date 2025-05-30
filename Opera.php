@@ -46,26 +46,22 @@ $category = 'opera';
     <section class="events-list">
         <h2 class="events-section-title">Événements à venir</h2>
         <div class="events-grid">
-            <?php
-            # ensuite on affiche tou les element avec une boucle for
-            for($i = 0; $i < $total_events; $i++) {
-                $event = $events[$i]; # on stock les infos de l'event avec l'index i
-            ?>
+            <?php foreach($events as $event): ?>
                 <div class="event-card">
                     <img src="images/<?php echo $event['image_path']; ?>" 
                          alt="<?php echo $event['title']; ?>" 
                          class="event-image">
                     <div class="event-card-info">
                         <h3><?php echo $event['title']; ?></h3>
-                        <p class="event-venue"><?php echo $event['venue']; ?></p>
-                        <p class="event-date">
-                            <?php echo date('d M H:i', strtotime($event['date_event'])); ?>
-                        </p>
+                        <div class="event-meta">
+                            <p><img src="images/location.png" alt="Location" class="icon"> <?php echo $event['venue']; ?></p>
+                            <p><img src="images/calendar.png" alt="Date" class="icon"> <?php echo date('d M H:i', strtotime($event['date_event'])); ?></p>
+                        </div>
                         <a href="reservation.php?id=<?php echo $event['id']; ?>" 
                            class="event-btn">Réserver</a>
                     </div>
                 </div>
-            <?php } ?>
+            <?php endforeach; ?>
         </div>
     </section>
 

@@ -1,176 +1,4 @@
-/* Dashboard Styles */
-.dashboard {
-  display: flex;
-  min-height: calc(100vh - 80px);
-  background-color: var(--dark-color);
-}
-
-.sidebar {
-  width: 250px;
-  background-color: var(--gray-color);
-  padding: 2rem 1rem;
-  border-right: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.sidebar_menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar_menu li {
-  margin-bottom: 1rem;
-}
-
-.sidebar_menu a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-}
-
-.sidebar_menu a:hover {
-  background-color: var(--accent-color);
-  color: var(--dark-color);
-}
-
-.sidebar-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.main-content {
-  flex: 1;
-  padding: 2rem;
-}
-
-.dashboard-header {
-  margin-bottom: 2rem;
-}
-
-.dashboard-header h1 {
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
-}
-
-.stats-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.stat-card {
-  background-color: var(--gray-color);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-}
-
-.stat-card h3 {
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.stat-card .value {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.stat-card a {
-  color: var(--accent-color);
-  font-size: 0.9rem;
-}
-
-.upcoming-events h2 {
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-}
-
-/* Replace the events-grid and event-card styles with these new table styles */
-.events-grid {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--gray-color);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
-
-.events-grid thead th {
-  background-color: var(--accent-color);
-  color: var(--dark-color);
-  text-align: left;
-  padding: 1rem;
-  font-size: 1.1rem;
-}
-
-.events-grid tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.events-grid tbody tr:last-child {
-  border-bottom: none;
-}
-
-.events-grid td {
-  padding: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-/* Forms and Tables */
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--accent-color);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--accent-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
-
-table th,
-table td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--accent-color);
-}
-
-table th {
-  background-color: var(--gray-color);
-  color: var(--accent-color);
-}
-
-.btn-danger {
-  background-color: #dc3545;
-  color: white;
-}
-
-.btn-danger:hover {
-  background-color: #c82333;
-}
-
-/* Table Styles - Improved */
+/* Events Table - Primary Styling */
 .events-grid {
   width: 100%;
   border-collapse: separate;
@@ -182,6 +10,7 @@ table th {
   margin-bottom: 2rem;
 }
 
+/* Table Header */
 .events-grid thead th {
   background-color: var(--accent-color);
   color: var(--dark-color);
@@ -193,8 +22,14 @@ table th {
   letter-spacing: 0.5px;
 }
 
+/* Table Body Rows */
 .events-grid tbody tr {
   transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.events-grid tbody tr:last-child {
+  border-bottom: none;
 }
 
 .events-grid tbody tr:hover {
@@ -205,10 +40,10 @@ table th {
   background-color: rgba(255, 255, 255, 0.03);
 }
 
+/* Table Cells */
 .events-grid td {
   padding: 1.25rem 1.5rem;
   color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .events-grid td:first-child {

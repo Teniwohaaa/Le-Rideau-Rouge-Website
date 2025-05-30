@@ -13,7 +13,6 @@ if (isset($_SESSION['is_admin'])) {
 ?>
 <head>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <header class="site-header">
     <div class="header-container">
@@ -40,21 +39,27 @@ if (isset($_SESSION['is_admin'])) {
             <?php if (isset($_SESSION['username'])): ?>
                 <div class="user-dropdown">
                     <button class="dropbtn">
-                        <i class="fas fa-user-circle"></i> <?php echo $_SESSION['username']; ?>
-                        <i class="fa fa-caret-down"></i>
+                        <img src="images/user-circle.png" alt="User" class="icon"> <?php echo $_SESSION['username']; ?>
+                        <img src="images/caret-down.png" alt="Expand" class="icon">
                     </button>
                     <div class="dropdown-content">
                         <?php if ($is_admin == 1): ?>
-                            <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="dashboard.php">
+                                <img src="images/dashboard.png" alt="Dashboard" class="icon"> Dashboard
+                            </a>
                         <?php else: ?>
-                            <a href="reservation-info.php"><i class="fas fa-ticket-alt"></i> Mes Réservations</a>
+                            <a href="reservation-info.php">
+                                <img src="images/ticket.png" alt="Ticket" class="icon"> Mes Réservations
+                            </a>
                         <?php endif; ?>
-                        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+                        <a href="logout.php">
+                            <img src="images/sign   -out.png" alt="Logout" class="icon"> Se déconnecter
+                        </a>
                     </div>
                 </div>
             <?php else: ?>
                 <a href="login.php" class="user-icon">
-                    <i class="fas fa-user-circle"></i>
+                    <img src="images/user-circle.png" alt="User" class="icon">
                     <span class="login-text">Connexion</span>
                 </a>
             <?php endif; ?>

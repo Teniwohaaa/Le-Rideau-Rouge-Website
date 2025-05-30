@@ -128,11 +128,13 @@ a {
   width: 100%;
 }
 /* Dropdown Styles */
+/* Dropdown menu when user is logged in */
 .user-dropdown {
   position: relative;
   display: inline-block;
 }
 
+/* Button that shows username and triggers dropdown */
 .dropbtn {
   background-color: transparent;
   color: var(--light-color);
@@ -145,6 +147,7 @@ a {
   gap: 0.5rem;
 }
 
+/* Dropdown menu content */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -157,6 +160,7 @@ a {
   border: 1px solid var(--accent-color);
 }
 
+/* Links inside dropdown */
 .dropdown-content a {
   color: var(--light-color);
   padding: 0.75rem 1rem;
@@ -165,17 +169,48 @@ a {
   font-size: 0.9rem;
 }
 
+/* Hover effect for dropdown links */
 .dropdown-content a:hover {
   background-color: var(--gray-color);
   color: var(--accent-color);
 }
 
+/* Show dropdown when hovering over user menu */
 .user-dropdown:hover .dropdown-content {
   display: block;
 }
 
+/* Change button color on hover */
 .user-dropdown:hover .dropbtn {
   color: var(--accent-color);
+}
+
+/* Basic icon styling - Keep this in style.css only */
+.icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Social media icons */
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+}
+
+/* Icons inside dropdown button */
+.dropbtn .icon {
+  margin-right: 4px;
+}
+
+/* Special styling for dropdown arrow icon */
+.dropbtn .icon:last-child {
+  margin-left: 4px;
+  margin-right: 0;
+  width: 12px;
+  height: 12px;
 }
 
 /* Hero Section */
@@ -398,7 +433,7 @@ a {
 .btn {
   display: inline-block;
   background-color: var(--accent-color);
-  color: var(--dark-color);
+  color: var(--light-color);
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
   font-weight: 600;

@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Rideau Rouge - Accueil</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/EventStyle.css"> <!-- Fix typo in 'styles' -->
 </head>
 <body>
     <?php include 'includes/Header.php'; ?>
@@ -61,8 +62,7 @@ session_start();
     </section>
 
     <!-- Featured Events -->
-
-<section class="featured-events">
+    <section class="featured-events">
     <h2 class="section-title">Événements à l'affiche</h2>
     <p class="section-subtitle">Découvrez nos sélections du moment</p>
     
@@ -70,39 +70,39 @@ session_start();
         <!-- Événement de Cinéma -->
         <div class="event-card">
             <img src="images/until.jpg" alt="Until Dawn" class="event-image">
-            <div class="event-info">
+            <div class="event-card-info">
                 <h3>Until Dawn</h3>
                 <div class="event-meta">
-                    <p><i class="fas fa-map-marker-alt"></i> Cinéma Cosmos Beta à Alger</p>
-                    <p><i class="fas fa-calendar-alt"></i> 16 May 13:00</p>
+                    <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
+                    <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
                 </div>
-                <a href="reservation.php?id= 1 ?>" class="btn">Réserver</a>
+                <a href="reservation.php?id=1" class="event-btn">Réserver</a>
             </div>
         </div>
         
         <!-- Événement de Théâtre -->
         <div class="event-card">
             <img src="images/arloukan.jpg" alt="Arlouken" class="event-image">
-            <div class="event-info">
+            <div class="event-card-info">
                 <h3>Arlouken</h3>
                 <div class="event-meta">
-                    <p><i class="fas fa-map-marker-alt"></i> Théâtre régional d'Oran</p>
-                    <p><i class="fas fa-calendar-alt"></i> 25 May 20:00</p>
+                    <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
+                    <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
                 </div>
-                <a href="reservation.php?id= 8 ?>" class="btn">Réserver</a>
+                <a href="reservation.php?id=8" class="event-btn">Réserver</a>
             </div>
         </div>
         
         <!-- Événement d'Opéra -->
         <div class="event-card">
             <img src="images/sahrat.jpg" alt="Sahrat El Madina" class="event-image">
-            <div class="event-info">
+            <div class="event-card-info">
                 <h3>Sahrat El Madina</h3>
                 <div class="event-meta">
-                    <p><i class="fas fa-map-marker-alt"></i> Opéra D'Alger</p>
-                    <p><i class="fas fa-calendar-alt"></i> 27 May 20:00</p>
+                    <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
+                    <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
                 </div>
-                <a href="reservation.php?id= 10?>" class="btn">Réserver</a>
+                <a href="reservation.php?id=10" class="event-btn">Réserver</a>
             </div>
         </div>
     </div>

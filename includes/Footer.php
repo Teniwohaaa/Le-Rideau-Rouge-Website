@@ -31,9 +31,9 @@
         <div class="footer-social">
             <h4>Nous suivre</h4>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><img src="images/facebook.png" alt="Facebook" class="social-icon"></a>
+                <a href="#"><img src="images/twitter.png" alt="Twitter" class="social-icon"></a>
+                <a href="#"><img src="images/instagram.png" alt="Instagram" class="social-icon"></a>
             </div>
         </div>
     </div>

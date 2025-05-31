@@ -53,7 +53,7 @@ if (isset($_SESSION['is_admin'])) {
                             </a>
                         <?php endif; ?>
                         <a href="logout.php">
-                            <img src="images/sign   -out.png" alt="Logout" class="icon"> Se déconnecter
+                            <img src="images/sign-out.png" alt="Logout" class="icon"> Se déconnecter
                         </a>
                     </div>
                 </div>

@@ -178,22 +178,22 @@ try {
 
         <div class="form-group">
             <label for="phone">Numéro de téléphone:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9 +]{10,15}" placeholder="06 12 34 56 78" required>
+            <input type="tel" id="phone" name="phone" pattern="^[0-9 +]{10,15}$" placeholder="06 12 34 56 78" required>
         </div>
 
         <div class="form-group">
             <label for="card">Numéro de carte:</label>
-            <input type="text" id="card" name="card" inputmode="numeric" pattern="[0-9]{16}" maxlength="16" placeholder="1234567812345678" required>
+            <input type="text" id="card" name="card" inputmode="numeric" pattern="^[0-9]{16}$" maxlength="16" placeholder="1234567812345678" required>
         </div>
 
         <div class="form-group">
             <label for="expiry">Date d'expiration:</label>
-            <input type="text" id="expiry" name="expiry" pattern="(0[1-9]|1[0-2])\/\d{2}" placeholder="MM/AA" required>
+            <input type="text" id="expiry" name="expiry" pattern="^(0[1-9]|1[0-2])\/\d{2}$ placeholder="MM/AA" required>
         </div>
 
         <div class="form-group">
             <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" inputmode="numeric" pattern="[0-9]{3}" maxlength="3" placeholder="123" required>
+            <input type="text" id="cvv" name="cvv" inputmode="numeric" pattern="^[0-9]{3}$" maxlength="3" placeholder="123" required>
         </div>
 
         <button type="submit" name="submit" class="btn-confirm">Confirmer la réservation</button>

@@ -412,12 +412,6 @@ a {
   padding: 1.5rem;
 }
 
-.event-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
-}
-
 .event-meta {
   margin-bottom: 1.5rem;
 }

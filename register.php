@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
             <form method="POST" class="auth-form">
                 <div class="form-group">
                     <label for="username">Nom Utilisateur</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" pattern="^[a-zA-Z0-9.-_]{3,16}$" required>
                 </div>
 
                 <div class="form-group">
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" pattern="^[a-zA-Z0-9]{4,30}$" required>
                 </div>
 
                 <button type="submit" class="btn-primary" name="submit">S'inscrire</button>

@@ -75,12 +75,12 @@ if (isset($_POST['submit'])) {
             <form method="POST" class="auth-form">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                 </div>
 
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" pattern="^[a-zA-Z0-9.-]{3,16}$" required>
                 </div>
 
                 <button type="submit" class="btn-primary" name="submit">Se connecter</button>

@@ -66,7 +66,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 20px;
+  padding: 35px;
   margin: 3rem auto 0;
   max-width: 1200px;
 }
@@ -100,11 +100,16 @@
 
 .event-info {
   padding: 1.5rem;
+  text-align: center;
 }
 
-.event-info h3 {
+.event-card-info h3 {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 0;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin: 15px auto;
   color: var(--accent-color);
 }
 
@@ -113,10 +118,11 @@
 }
 
 .event-meta p {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   color: var(--light-color);
 }
 
@@ -131,6 +137,9 @@
   text-decoration: none;
   transition: var(--transition);
   font-weight: 500;
+  margin: 15px auto 20px;
+  display: block;
+  width: fit-content;
 }
 
 .event-btn:hover {

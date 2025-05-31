@@ -30,7 +30,8 @@ try {
 } catch (PDOException $e) {
     echo "database error: ". $e->getMessage();
 }
-?>  
+?>
+
 <head>
     <title>Tableau de Bord - Le Rideau Rouge</title>
     <link rel="stylesheet" href="styles/dashboard.css">
@@ -73,33 +74,7 @@ try {
             </div>
         </div>
         
-        <div class="upcoming-events">
-            <h2>Prochains Événements</h2>
-            <?php if (count($upcoming_events) > 0): ?>
-            <table class="events-grid">
-                <thead>
-                    <tr>
-                        <th>Titre</th>
-                        <th>Date</th>
-                        <th>Lieu</th>
-                        <th>Prix</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($upcoming_events as $event): ?>
-                        <tr>
-                            <td data-label="Titre"><?php echo $event['title']; ?></td>
-                            <td data-label="Date"><?php echo date('d M Y H:i', strtotime($event['date_event'])); ?></td>
-                            <td data-label="Lieu"><?php echo $event['venue']; ?></td>
-                            <td data-label="Prix"><?php echo $event['price']; ?> DZD</td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-                <?php else: ?>
-                    <p>Aucun événement à venir.</p>
-                <?php endif; ?>
-        </div>
+       
     </main>
 </div>
 

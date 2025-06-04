@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// check if user is admin (beginner version)
 $is_admin = 0;
 if (isset($_SESSION['is_admin'])) {
     if ($_SESSION['is_admin'] == 1) {

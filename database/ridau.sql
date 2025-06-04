@@ -6,7 +6,8 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     usr_password VARCHAR(255) NOT NULL,
-    is_admin BOOLEAN DEFAULT FALSE
+    is_admin BOOLEAN DEFAULT FALSE 
+    -- is admin est une variable booleene, si elle est a 0 don l'utulisateur n'est pas admin sinon il l'est
 );
 
 CREATE TABLE events (

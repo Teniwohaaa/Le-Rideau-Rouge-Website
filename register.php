@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
         $ClassMessage = "alert-warning";
     } else {
         // on verifie si le mail exsiste
+        // on stock le resultat apres la requette sql qui va chercher si le mail exsiste deja dans la base de données
         $result = $conn->query("SELECT email FROM users WHERE email = '$email'");
         
         if ($result->rowCount() > 0) { # ici si les collones son superireur a 0 alors on affiche un message d'erreur
@@ -32,10 +33,10 @@ if (isset($_POST['submit'])) {
             
             if ($conn->query($sql)) { 
                 # si on effectue l'insertions alors on se dirive vers la page d'acceuil
-                // Get the newly created user's ID
+                
                 $user_id = $conn->lastInsertId();
                 
-                // Set all necessary session variables
+                // met toutes les variables de session necessaire
                 $_SESSION['email'] = $email;
                 $_SESSION['username'] = $username;
                 $_SESSION['user_id'] = $user_id;
@@ -54,23 +55,25 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Le Rideau Rouge</title>
     <link rel="stylesheet" href="styles/auth-style.css">
 </head>
+
 <body>
     <?php include 'includes/Header.php'; ?>
 
     <main class="auth-container">
         <div class="auth-card">
             <h2>Créer un compte</h2>
-            
+            <!-- ce bloque ser a afficher un message d'erreur -->
             <?php if (!empty($message)) : ?>
-                <div class="alert <?php echo $ClassMessage ?>">
-                    <?= $message ?>
-                </div>
+            <div class="alert <?php echo $ClassMessage ?>">
+                <?= $message ?>
+            </div>
             <?php endif; ?>
 
             <form method="POST" class="auth-form">
@@ -100,4 +103,5 @@ if (isset($_POST['submit'])) {
 
     <?php include 'includes/Footer.php'; ?>
 </body>
+
 </html>

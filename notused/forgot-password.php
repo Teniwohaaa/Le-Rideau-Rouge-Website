@@ -52,14 +52,17 @@ if (isset($_POST['submit'])) {
     } 
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nouvau Mot De Pass - Le Rideau Rouge</title>
     <link rel="stylesheet" href="styles/auth-style.css">
 </head>
+
 <body>
     <?php include 'includes/Header.php'; ?>
 
@@ -68,9 +71,9 @@ if (isset($_POST['submit'])) {
             <h2>Réinitialiser le mot de passe</h2>
 
             <?php if (!empty($message)): ?>
-                <div class="alert <?php echo $ClassMessage; ?>">
-                    <?php echo $message; ?>
-                </div>
+            <div class="alert <?php echo $ClassMessage; ?>">
+                <?php echo $message; ?>
+            </div>
             <?php endif; ?>
 
             <form method="POST" class="auth-form">
@@ -101,4 +104,5 @@ if (isset($_POST['submit'])) {
 
     <?php include 'includes/Footer.php'; ?>
 </body>
+
 </html>

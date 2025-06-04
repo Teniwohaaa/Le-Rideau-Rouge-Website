@@ -1,6 +1,8 @@
 <footer class="site-footer">
+
     <div class="footer-container">
         <div class="footer-about">
+            <!-- logo du rideau rouge + Le rideau rouge -->
             <div class="footer-logo">
                 <img src="images/Brand-Icon.png" alt="Le Rideau Rouge">
                 <h3>Le Rideau Rouge</h3>
@@ -39,6 +41,6 @@
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; <?php echo date('Y'); ?> Le Rideau Rouge. Tous droits réservés.</p>
+        <p>&copy; 2025 Le Rideau Rouge. Tous droits réservés.</p>
     </div>
 </footer>

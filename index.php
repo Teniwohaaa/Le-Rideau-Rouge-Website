@@ -1,18 +1,23 @@
 <?php
 session_start();
+// commancer une session
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- gere la taille la page seulon l'aparreil utuliser -->
     <title>Le Rideau Rouge - Accueil</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/EventStyle.css"> <!-- Fix typo in 'styles' -->
+    <link rel="stylesheet" href="styles/EventStyle.css">
 </head>
+
 <body>
     <?php include 'includes/Header.php'; ?>
+    <!-- fait un apelle eu header pur qu'il s'affiche -->
 
     <!-- Hero Section -->
     <section class="hero">
@@ -30,8 +35,9 @@ session_start();
     <section id="categories" class="categories-section">
         <h2 class="section-title">Nos Catégories</h2>
         <p class="section-subtitle">Choisissez votre expérience culturelle</p>
-        
+
         <div class="categories-grid">
+
             <div class="category-card">
                 <img src="images/cinema.png" alt="Cinéma" class="category-image">
                 <div class="category-content">
@@ -40,7 +46,7 @@ session_start();
                     <a href="Cinemas.php" class="btn">Voir les films</a>
                 </div>
             </div>
-            
+
             <div class="category-card">
                 <img src="images/theatre.jpg" alt="Théâtre" class="category-image">
                 <div class="category-content">
@@ -49,7 +55,7 @@ session_start();
                     <a href="Theatres.php" class="btn">Voir les pièces</a>
                 </div>
             </div>
-            
+
             <div class="category-card">
                 <img src="images/opera.jpg" alt="Opéra" class="category-image">
                 <div class="category-content">
@@ -61,53 +67,55 @@ session_start();
         </div>
     </section>
 
-    <!-- Featured Events -->
+    <!-- evenments a l'affiche -->
     <section class="featured-events">
-    <h2 class="section-title">Événements à l'affiche</h2>
-    <p class="section-subtitle">Découvrez nos sélections du moment</p>
-    
-    <div class="events-grid">
-        <!-- Événement de Cinéma -->
-        <div class="event-card">
-            <img src="images/until.jpg" alt="Until Dawn" class="event-image">
-            <div class="event-card-info">
-                <h3>Until Dawn</h3>
-                <div class="event-meta">
-                    <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
-                    <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
+        <h2 class="section-title">Événements à l'affiche</h2>
+        <p class="section-subtitle">Découvrez nos sélections du moment</p>
+
+        <div class="events-grid">
+            <!-- Événement de Cinéma -->
+            <div class="event-card">
+                <img src="images/until.jpg" alt="Until Dawn" class="event-image">
+                <div class="event-card-info">
+                    <h3>Until Dawn</h3>
+                    <div class="event-meta">
+                        <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
+                        <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
+                    </div>
+                    <!-- on a mit ?id=1 pour pouvois recuperer plutard l'identifiant de l'evenment grace a $_GET -->
+                    <a href="reservation.php?id=1" class="event-btn">Réserver</a>
                 </div>
-                <a href="reservation.php?id=1" class="event-btn">Réserver</a>
+            </div>
+
+            <!-- Événement de Théâtre -->
+            <div class="event-card">
+                <img src="images/arloukan.jpg" alt="Arlouken" class="event-image">
+                <div class="event-card-info">
+                    <h3>Arlouken</h3>
+                    <div class="event-meta">
+                        <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
+                        <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
+                    </div>
+                    <a href="reservation.php?id=8" class="event-btn">Réserver</a>
+                </div>
+            </div>
+
+            <!-- Événement d'Opéra -->
+            <div class="event-card">
+                <img src="images/sahrat.jpg" alt="Sahrat El Madina" class="event-image">
+                <div class="event-card-info">
+                    <h3>Sahrat El Madina</h3>
+                    <div class="event-meta">
+                        <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
+                        <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
+                    </div>
+                    <a href="reservation.php?id=10" class="event-btn">Réserver</a>
+                </div>
             </div>
         </div>
-        
-        <!-- Événement de Théâtre -->
-        <div class="event-card">
-            <img src="images/arloukan.jpg" alt="Arlouken" class="event-image">
-            <div class="event-card-info">
-                <h3>Arlouken</h3>
-                <div class="event-meta">
-                    <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
-                    <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
-                </div>
-                <a href="reservation.php?id=8" class="event-btn">Réserver</a>
-            </div>
-        </div>
-        
-        <!-- Événement d'Opéra -->
-        <div class="event-card">
-            <img src="images/sahrat.jpg" alt="Sahrat El Madina" class="event-image">
-            <div class="event-card-info">
-                <h3>Sahrat El Madina</h3>
-                <div class="event-meta">
-                    <p><img src="images/location.png" alt="Location" class="icon"> Cinéma Cosmos Beta à Alger</p>
-                    <p><img src="images/calendar.png" alt="Date" class="icon"> 16 May 13:00</p>
-                </div>
-                <a href="reservation.php?id=10" class="event-btn">Réserver</a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <?php include 'includes/Footer.php'; ?>
 </body>
+
 </html>

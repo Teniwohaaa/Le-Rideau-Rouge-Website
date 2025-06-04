@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    # ici on va verifier si kle mot de pass est correct et si oui on verifie si son password l'est
+    # ici on va verifier si le mail est correct et si oui on verifie si son password l'est
     # si un des deux n'exsiste pas alors c'est erreur sinon on va simplement se connecter 
 
     # on verifi si tout les champs on etais remplie 
@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
         $ClassMessage = "alert-warning";
     }
     else {
+        // on cherche si le mail exsist
         $result = $conn->query("SELECT `id`, `username`, `email`, `usr_password`, `is_admin` FROM `users` WHERE email = '$email'");
 
         if ($result->rowCount() > 0) {
@@ -67,15 +68,16 @@ if (isset($_POST['submit'])) {
         <div class="auth-card">
             <h2>Connexion</h2>
             <?php if (!empty($message)): ?>
-             <div class="alert <?php echo $ClassMessage ?>">
-             <?php echo $message; ?>
+            <div class="alert <?php echo $ClassMessage ?>">
+                <?php echo $message; ?>
             </div>
             <?php endif; ?>
 
             <form method="POST" class="auth-form">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                    <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        required>
                 </div>
 
                 <div class="form-group">
@@ -95,4 +97,5 @@ if (isset($_POST['submit'])) {
 
     <?php include 'includes/Footer.php'; ?>
 </body>
+
 </html>

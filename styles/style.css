@@ -17,12 +17,12 @@
 /* Base Styles */
 body {
   font-family: var(--font-secondary);
-  margin: 0;
-  padding: 0;
+  margin: 0; /* Supprime les marges extérieures par défaut du navigateur */
+  padding: 0; /* Supprime les espacements internes par défaut. */
   background-color: var(--dark-color);
   color: var(--light-color);
-  line-height: 1.6;
-  padding-top: 80px; /* For fixed header */
+  line-height: 1.6; /* Augmente un peu l’espace entre les lignes */
+  padding-top: 80px; /* Ajoute un espacement en haut du corps de la page */
 }
 
 h1,
@@ -32,7 +32,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-main);
-  font-weight: 700;
+  font-weight: 700; /* Rend tous les titres gras. */
 }
 
 a {
@@ -44,15 +44,21 @@ a {
 /* Header */
 .site-header {
   background-color: var(--header-bg);
-  position: fixed;
+  position: fixed; /* Rend l’en-tête fixe en haut de la page : il reste visible même quand tu scrolles. */
   top: 0;
   left: 0;
   right: 0;
+  /* Positionne l’élément tout en haut, et l'étire sur toute la largeur de l'écran. */
   z-index: 1000;
+  /* Place l’en-tête au-dessus des autres éléments de la page. */
   backdrop-filter: blur(10px);
+  /* Applique un flou sur ce qui est derrière l’en-tête  */
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  /* bordure en bas */
   height: 80px;
+  /* Définit une hauteur fixe de 80 pixels. */
   display: flex;
+  /* Transforme l’en-tête en boîte flex, ce qui facilite le positionnement de ses enfants (logo, menu, etc.)  */
   align-items: center;
 }
 

@@ -39,58 +39,88 @@ try {
 <head>
     <title>Tableau de Bord - Le Rideau Rouge</title>
     <style>
-
+    /* Conteneur principal du dashboard, structure en flex */
     .dashboard {
         display: flex;
         flex: 1;
     }
 
+    /* Barre latérale (menu admin) */
     .sidebar {
         width: 200px;
+        /* Largeur fixe */
         background-color: #333;
+        /* Fond sombre */
         color: white;
+        /* Texte blanc */
         padding: 20px 0;
+        /* Espacement vertical */
     }
 
+    /* Liste du menu de la sidebar */
     .sidebar_menu {
         list-style: none;
+        /* Pas de puces */
         padding: 0;
         margin: 0;
     }
 
+    /* Lien du menu de la sidebar */
     .sidebar_menu li a {
         display: flex;
+        /* Icône + texte sur la même ligne */
         align-items: center;
+        /* Alignement vertical */
         color: white;
+        /* Texte blanc */
         text-decoration: none;
+        /* Pas de soulignement */
         padding: 10px 15px;
+        /* Espacement interne */
     }
 
+    /* Effet au survol sur les liens du menu */
     .sidebar_menu li a:hover {
         background-color: #555;
+        /* Fond plus clair au survol */
     }
 
+    /* Icônes du menu */
     .sidebar-icon {
         width: 20px;
+        /* Taille de l'icône */
         margin-right: 10px;
+        /* Espace entre icône et texte */
     }
 
+    /* Contenu principal à droite de la sidebar */
     .main-content {
         flex: 1;
+        /* Prend tout l'espace restant */
         padding: 20px;
+        /* Espacement interne */
     }
 
+    /* Section contenant les cartes de statistiques */
     .stats-section {
-        display: flex; /* Affichage en ligne des cartes de stats */
-        gap: 20px; /* Espace entre les cartes */
-        margin-top: 20px; /* Espace au-dessus de la section */
+        display: flex;
+        /* Affichage en ligne des cartes de stats */
+        gap: 20px;
+        /* Espace entre les cartes */
+        margin-top: 20px;
+        /* Espace au-dessus de la section */
     }
 
+    /* Carte individuelle de statistique */
     .stat-card {
-        border: 1px solid #ddd; /* Bordure grise claire */
-        padding: 15px; /* Espacement interne */
-        border-radius: 5px; /* Coins arrondis */
-        flex: 1; /* Prend la même largeur que les autres cartes */
+        border: 1px solid #ddd;
+        /* Bordure grise claire */
+        padding: 15px;
+        /* Espacement interne */
+        border-radius: 5px;
+        /* Coins arrondis */
+        flex: 1;
+        /* Prend la même largeur que les autres cartes */
     }
     </style>
 </head>

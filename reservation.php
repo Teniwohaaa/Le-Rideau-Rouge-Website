@@ -18,8 +18,8 @@ if (isset($_POST['submit']) && isset($_SESSION['user_id'])) {
         }
 
         // Use prepared statement for insert
-        $stmt = $conn->prepare("INSERT INTO reservations (user_id, event_id, quantity, phone) VALUES (?, ?, ?, ?)");
-        if ($stmt->execute([$user_id, $event_id, $quantity, $phone])) {
+        $stmt = $conn->prepare("INSERT INTO reservations (user_id, event_id, quantity, phone) VALUES ($user_id, $event_id, $quantity, '$phone')");
+        if ($stmt->execute()) {
             $reservation_id = $conn->lastInsertId();
             header("Location: confirmation.php?reservation_id=" . $reservation_id);
             exit();
@@ -67,85 +67,142 @@ try {
     <link rel="stylesheet" href="styles/EventStyle.css">
     <link rel="stylesheet" href="styles/style.css">
     <style>
+    /* Bandeau visuel de l'événement (hero) */
     .reservation-hero {
-        height: 50vh;
+        height: 50%;
+        /* Hauteur de la section hero */
         min-height: 300px;
+        /* Hauteur minimale pour petits écrans */
         position: relative;
+        /* Positionnement pour contenu interne */
         display: flex;
+        /* Utilisation du flexbox pour centrer le contenu */
         align-items: center;
+        /* Centrage vertical */
         justify-content: center;
+        /* Centrage horizontal */
         margin-bottom: 2rem;
+        /* Espace sous le hero */
         overflow: hidden;
+        /* Cache le débordement de l'image */
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('images/<?= htmlspecialchars($event['image_path']) ?>');
+            url('images/<?php echo($event['image_path']) ?>');
+        /* Image de fond avec overlay sombre */
         background-size: cover;
+        /* L'image couvre toute la zone */
         background-position: center;
+        /* Centre l'image */
     }
 
+    /* Contenu textuel du hero */
     .reservation-hero-content {
         text-align: center;
+        /* Texte centré */
         color: white;
+        /* Texte en blanc */
         padding: 2rem;
+        /* Espacement interne */
         max-width: 800px;
+        /* Largeur maximale du contenu */
     }
 
+    /* Titre principal dans le hero */
     .reservation-hero h2 {
         font-size: 2.5rem;
+        /* Taille du texte */
         margin-bottom: 1rem;
+        /* Espace sous le titre */
     }
 
+    /* Conteneur principal du formulaire de réservation */
     .reservation-container {
         max-width: 600px;
+        /* Largeur maximale du conteneur */
         margin: 0 auto;
+        /* Centrage horizontal */
         padding: 2rem;
+        /* Espacement interne */
         background: var(--gray-color);
+        /* Fond gris clair */
         border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
+        /* Coins arrondis */
+        margin-bottom: 3rem;
     }
 
+    /* Informations principales de l'événement (prix, date) */
     .reservation-info {
         display: flex;
+        /* Affichage en ligne */
         justify-content: space-between;
+        /* Espacement entre les blocs */
         margin-bottom: 1.5rem;
+        /* Espace sous le bloc */
         padding-bottom: 1rem;
+        /* Espace interne bas */
         border-bottom: 1px solid var(--accent-color);
+        /* Ligne de séparation */
     }
 
+    /* Mise en page du formulaire de réservation */
     .reservation-form {
         display: grid;
+        /* Utilisation de la grille CSS */
         gap: 1rem;
+        /* Espace entre les champs */
     }
 
+    /* Groupe de champs du formulaire */
     .form-group {
         display: flex;
+        /* Affichage en colonne */
         flex-direction: column;
+        /* Empilement vertical */
     }
 
+    /* Label de chaque champ */
     .form-group label {
         margin-bottom: 0.5rem;
+        /* Espace sous le label */
         font-weight: 500;
+        /* Texte semi-gras */
     }
 
+    /* Champ de saisie du formulaire */
     .form-group input {
         padding: 0.75rem;
+        /* Espacement interne */
         border-radius: var(--border-radius);
+        /* Coins arrondis */
         border: 1px solid #ddd;
+        /* Bordure grise claire */
     }
 
+    /* Bouton de confirmation de réservation */
     .btn-confirm {
         background: var(--accent-color);
+        /* Couleur d'accent */
         color: white;
+        /* Texte blanc */
         padding: 1rem;
+        /* Espacement interne */
         border: none;
+        /* Pas de bordure */
         border-radius: var(--border-radius);
+        /* Coins arrondis */
         font-size: 1.1rem;
+        /* Taille du texte */
         cursor: pointer;
+        /* Curseur pointeur */
         transition: var(--transition);
+        /* Animation fluide */
     }
 
+    /* Effet au survol du bouton */
     .btn-confirm:hover {
         background: var(--secondary-color);
+        /* Couleur secondaire */
         transform: translateY(-2px);
+        /* Légère élévation */
     }
     </style>
 </head>
@@ -193,7 +250,7 @@ try {
 
             <div class="form-group">
                 <label for="expiry">Date d'expiration:</label>
-                <input type="text" id="expiry" name="expiry" pattern="^(0[1-9]|1[0-2])\/\d{2}$ placeholder=" MM/AA"
+                <input type="text" id="expiry" name="expiry" pattern="^(0[1-9]|1[0-2])\/\d{2}$" placeholder="MM/AA"
                     required>
             </div>
 
